@@ -1,0 +1,28 @@
+EPICKI PORADNIK JAK USTAWIĆ LTE MODEM NA RASPBERCE
+
+1. Ściągacie instalkę na Raspberry OS lite ze strony Raspberry(Zawsze mi się kurwiło po drodze jak inne używałem)
+2. Łączycię się z raspberką poprzez ssh
+3. Wpisujecie komendę "sudo apt-get install lsusb ppp usb-modeswitch wvdial sg3-utils"
+4. Szukacie na jakim busie jest modem pokaże wam się Huawei Technologies i wiecie, że to ten skurwiel
+5. Musicie zedytować plik wvdial robicie to poprzez "sudo nano /etc/wvdial.conf"
+6. Zamieniacie wszystko co w nim jest na to:
+UWAGA WG STRONY PLAY WPISUJE SIĘ INTERNET W INIT3 ZAWSZE NIE WAŻNE OD PLANU ALE MOŻE TO BYĆ FARMAZON DO PRZETESTOWANIA(MOGĄ DOJEBAĆ CHORE OPŁATY)
+
+[Dialer Defaults]
+Init1 = ATZ
+Init2 = ATE1
+Init3 = AT+CGDCONT=1,"IP","internet"
+Stupid Mode = 1
+MessageEndPoint = "0x01"
+Modem Type = Analog Modem
+ISDN = 0
+Phone = *99#
+Modem = /dev/ttyUSB0
+Username = { }
+Password = { }
+Baud = 460800
+Auto Reconnect = on
+7. Dopisujecie 2 linijki do pliku "sudo nano /etc/network/interfaces":
+auto ppp0
+iface ppp0 inet wvdial
+8. Pingujecie googla, czy co tam chcecie aby sprawdzić czy działa.

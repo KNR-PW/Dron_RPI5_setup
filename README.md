@@ -61,4 +61,6 @@ The orchestrator detects missing execute bits and fall
 There are guides and scripts for setting up:
 
 1. 4G modem
+   1. 4G_modem_setup.md (one way of setting up)
+   2. kondrad_setup_modem.txt(second way with connectivity problems after 5mins of connection)
 2. tailscale vpn for nat traversal (global connectivity)
