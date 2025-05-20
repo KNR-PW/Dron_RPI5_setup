@@ -26,8 +26,6 @@
    ssh <hostname>@<IP>
    ```
 
----
-
 ## 2  Script overview
 
 | Order | File                     | What it does (one sentence)                                                                                      |
@@ -45,7 +43,7 @@
 
 All scripts are idempotent; you can rerun any of them safely after updates.
 
----
+
 
 ## 3  Quick start
 
@@ -57,3 +55,10 @@ d. sudo ./run_all.sh    # grab a coffee ☕️
 ```
 
 The orchestrator detects missing execute bits and fall
+
+# connectivity
+
+There are guides and scripts for setting up:
+
+1. 4G modem
+2. tailscale vpn for nat traversal (global connectivity)
